@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+
+    <style>
+        body {
+            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+            background-size: 200% 200%;
+            animation: backgroundAnimation 6s ease-in-out forwards;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        #valentineMessage {
+            font-size: 1.3em;
+            color: #800000;
+            opacity: 0;
+            transform: scale(0.5);
+            animation: fadeInScale 5s ease-in-out forwards;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        #nextButton {
+            display: none;
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1em;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        #questionSection {
+            display: none;
+        }
+
+        #valentineQuestion {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            color: #b30047;
+        }
+
+        .option {
+            margin: 10px;
+            padding: 12px 25px;
+            font-size: 1em;
+            background-color: #ffc0cb;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #yayMessage {
+            display: none;
+            font-size: 2.2em;
+            color: #ff0033;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1 id="valentineMessage">
+    💖 Happy Valentine’s Day 💖<br><br>
+
+    To someone very special — my love, my Premika, my Tabassum ❤️<br><br>
+
+    Years have passed since our first sight love,<br>
+    but trust me, my love for you has only grown stronger with time.<br><br>
+
+    Ami onek baje chilam, achi…<br>
+    ami tomake onek hurt korsi,<br>
+    and worst of all, ami tomake kandaisi.<br>
+    Eitar jonno ami nijer kachei lojja pai.<br><br>
+
+    I know you may never forgive me,<br>
+    but my love, I hope one day I can be forgiven by you —<br>
+    amr jaan, amr premika, amr Tabassum.<br><br>
+
+    You make my days brighter, my smiles bigger,<br>
+    and my heart happier just by being you.<br><br>
+
+    Every moment with you feels magical,<br>
+    and I’d love to create many more memories together,<br>
+    even though we’ve faced more downs than ups.<br><br>
+
+    <strong>From your well wisher,one who wants you-Mohammad Ehtesam Uddin Ahmed ❤️</strong>
+</h1>
+
+<button id="nextButton" onclick="showQuestion()">Next 💌</button>
+
+<div id="questionSection">
+    <h2 id="valentineQuestion">Will you be my Valentine Premika? 💘</h2>
+    <button class="option" id="yesButton" onclick="showYay()">Yes i am your's 💖</button>
+    <button class="option" id="noButton" onclick="increaseYes()">Fuck you..you little piece of shit 🙈</button>
+</div>
+
+<h1 id="yayMessage">
+    💖 You said YES 💖<br><br>
+    Thank you for choosing me love. I will give my everything to see you never cry again and be happy my world❤️
+</h1>
+
+<script>
+    setTimeout(() => {
+        document.getElementById("nextButton").style.display = "block";
+    }, 5000);
+
+    function showQuestion() {
+        document.getElementById("valentineMessage").style.display = "none";
+        document.getElementById("nextButton").style.display = "none";
+        document.getElementById("questionSection").style.display = "block";
+    }
+
+    function showYay() {
+        document.getElementById("questionSection").style.display = "none";
+        document.getElementById("yayMessage").style.display = "block";
+    }
+
+    function increaseYes() {
+        const yesButton = document.getElementById("yesButton");
+        const noButton = document.getElementById("noButton");
+
+        const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+        yesButton.style.fontSize = (currentSize * 1.25) + "px";
+        noButton.style.transform = "translateX(30px)";
+    }
+</script>
+
+</body>
+</html>
